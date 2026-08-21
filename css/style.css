@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  background-color: #0b0c14;
+  color: #f0f0f0;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 10px;
+  overflow: hidden;
+}
+
+#game-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(78, 120, 255, 0.25);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  border: 4px solid #334466;
+}
+
+#gameCanvas {
+  display: block;
+  width: 800px;
+  height: 600px;
+  max-width: 95vw;
+  max-height: 84vh;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #111;
+}
+
+@media (min-height: 850px) and (min-width: 1150px) {
+  #gameCanvas {
+    width: 960px;
+    height: 720px;
+  }
+}
+
+/* CRT Scanline Overlay - Crisp & Subtle */
+.crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.18) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  background-size: 100% 3px, 6px 100%;
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+}
+
+.crt-overlay.disabled {
+  display: none;
+}
+
+/* Footer / Instructions bar */
+#footer-controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 18px;
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.key-badge {
+  display: inline-block;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-bottom: 2px solid #334155;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: #38bdf8;
+  font-weight: bold;
+}
